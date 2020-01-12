@@ -16,7 +16,6 @@ class JeopardyCodeGame(object):
             with open(filename) as f:
                 questions = json.loads(f.read())
                 self.questions.extend(questions)
-        print(len(self.questions))
         self.current_answer = None
         self.scores = [0, 0]
 
