@@ -7,13 +7,16 @@ import code
 
 
 class JeopardyCodeGame(object):
-    FILENAME = 'questions.json'
+    FILENAMES = ['questions_0.json', 'questions_1.json']
 
     def __init__(self):
         self.master = tk.Tk()
-        with open(self.FILENAME) as f:
-            questions = json.loads(f.read())
-        self.questions = questions
+        self.questions = []
+        for filename in self.FILENAMES:
+            with open(filename) as f:
+                questions = json.loads(f.read())
+                self.questions.extend(questions)
+        print(len(self.questions))
         self.current_answer = None
         self.scores = [0, 0]
 
