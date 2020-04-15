@@ -104,9 +104,10 @@ class JeopardyCodeGame(object):
         question_text = question_obj["question"]
         answer_text = question_obj["answer"]
         air_date = question_obj["air_date"]
+        jeop_round = question_obj["round"]
         year = air_date[:4]
         self.question_display.config(
-            text=f"(aired {year})\n\n{category}\n\n{value}\n\n{question_text}"
+            text=f"{jeop_round} ({year})\n\n{category}\n\n{value}\n\n{question_text}"
         )
         self.question_button.config(state=tk.DISABLED)
         self.answer_display.config(text="???")
